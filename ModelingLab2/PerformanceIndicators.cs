@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ModelingLab2
+﻿namespace ModelingLab2
 {
     /// <summary>
     /// Показатели эффективности
     /// </summary>
     public class PerformanceIndicators
     {
-        public double CalculateCoeffWorkload( double Tstagn1,   double Tstagn2,  double Tmod)
+        public decimal CalculateCoeffWorkload( decimal Tstagn1,   decimal Tstagn2,  decimal Tmod)
         {
-            return Tstagn1 / (Tmod - Tstagn1) * Tstagn2 / (Tmod - Tstagn2);
+            return 1 - (Tstagn1+Tstagn2) / Tmod;
         }
-        public double CalculateT_averServ( double Tserv,  double Twait1,  double Twait2,  double Nserv)
+        public decimal CalculateT_averServ( decimal Tserv,  decimal Twait_serv1,  decimal Twait_serv2,  decimal Nserv)
         {
-            return (Tserv + Twait1 + Twait2) / Nserv;
+            return (Tserv + Twait_serv1 + Twait_serv2) / Nserv;
         }
-        public double CalculateP_noServ( double N_noServ,  double N)
+        public decimal CalculateP_noServ( decimal N_noServ,  decimal N)
         {
             return N_noServ / N;
         }
